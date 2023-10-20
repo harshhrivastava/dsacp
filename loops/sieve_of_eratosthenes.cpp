@@ -3,20 +3,24 @@
 
 using namespace std;
 
+// Sieve of Eratosthenes is a method of determining all prime numbers
+// starting from 2 uptil a given limit. The following function takes limit as input,
+// and returns back a boolean array of `limit` size containing true or false.
+// If the value at is true then the number (index + 1) is a prime number.
 bool* sieveOfEratosthenes(int limit) {
 
     // This dynamically created array will store the results. 
     bool* isPrime = new bool[limit];
     
     // Setting all the elements of the array to true.
-    for(int i = 1; i <= limit; i++) isPrime[i - 1] = true;
+    for (int i = 1; i <= limit; i++) isPrime[i - 1] = true;
     
     // The first element, i.e., 1 will be false by default.
     // This is because 1 is neither a prime number, nor a composite number.
     isPrime[0] = false;
     
     // Here we start a loop starting from 1 till the specified limit.
-    for(int i = 1; i <= limit; i++) {
+    for (int i = 1; i <= limit; i++) {
 
         // We check whether the value of the element is true or not.
         // If it will be true, we will be settting all the multiples of this value as false.
@@ -26,7 +30,7 @@ bool* sieveOfEratosthenes(int limit) {
 
             // Here we start the loop from the second multiple
             // till the last multiple, which is under the specified limit.
-            for(int j = i * 2; j <= limit; j += i) {
+            for (int j = i * 2; j <= limit; j += i) {
 
                 // If the multiple is true, we set it to false.
                 if (isPrime[j - 1]) isPrime[j - 1] = false;
@@ -49,13 +53,13 @@ int main(int argc, char const *argv[])
     
     // Once we receive the result, we iterate through the entire array
     // to get all those elements which are true and print the value of `i` for that iteration.
-    for(int i = 1; i <= limit; i++) {
+    for (int i = 1; i <= limit; i++) {
 
         // Here we check whether the value of the element is true or not.
         if (isPrime[i - 1]) {
 
             // If the value is true, we print the value of `i`.
-            cout<<i<<endl;
+            cout << i << endl;
         }
     }
 
