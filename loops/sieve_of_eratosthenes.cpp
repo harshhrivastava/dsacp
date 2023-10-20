@@ -22,14 +22,14 @@ bool* sieveOfEratosthenes(int limit) {
         // If it will be true, we will be settting all the multiples of this value as false.
         // Here we use `i - 1` because the starting value of array is 0,
         // and we started from 1. So we need to reduce 1 from the value of i.
-        if(isPrime[i - 1]) {
+        if (isPrime[i - 1]) {
 
             // Here we start the loop from the second multiple
             // till the last multiple, which is under the specified limit.
             for(int j = i * 2; j <= limit; j += i) {
 
                 // If the multiple is true, we set it to false.
-                if(isPrime[j - 1]) isPrime[j - 1] = false;
+                if (isPrime[j - 1]) isPrime[j - 1] = false;
             }
         }
     }
@@ -52,7 +52,7 @@ int main(int argc, char const *argv[])
     for(int i = 1; i <= limit; i++) {
 
         // Here we check whether the value of the element is true or not.
-        if(isPrime[i - 1]) {
+        if (isPrime[i - 1]) {
 
             // If the value is true, we print the value of `i`.
             cout<<i<<endl;
